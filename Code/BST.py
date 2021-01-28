@@ -70,3 +70,21 @@ class BTS(object):
 
         return node, delete
 
+    def pre_order(self):
+        def _pre_order(node):
+            if node is None:
+                return
+            else:
+                print(node.data)
+                _pre_order(node.left)
+                _pre_order(node.right)
+        _pre_order(self.root)
+
+
+array = [40, 4, 34, 45, 14, 55, 48, 13, 15, 49, 47]
+
+bst = BTS()
+for x in array:
+    bst.insert(x)
+
+bst.pre_order()
