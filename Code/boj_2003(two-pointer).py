@@ -3,12 +3,10 @@ li = list(map(int, input().split()))
 
 result = 0; total = 0; lo = 0; hi = 0
 
-while True:
-    if total >= M:
+while lo < N:
+    if total >= M or hi == N:
         total -= li[lo]
         lo += 1
-    elif hi == N:
-        break
     else:
         total += li[hi]
         hi += 1
