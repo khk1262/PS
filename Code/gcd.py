@@ -3,7 +3,8 @@ def gcd(a, b):
     return b
 
 
-print(gcd(38, 18))
+if __name__ == '__main__':
+    print(gcd(38, 18))
 
 
 # def extended_gcd(a, b):
