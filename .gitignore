@@ -1,2 +1,6 @@
 
 Code/.idea/
+
+*.xml
+
+.idea/PS.iml

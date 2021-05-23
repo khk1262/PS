@@ -29,8 +29,7 @@ def dijkstra(start):
         if visited[curr]: # heap이 비어서 끝났을 경우의 방문 정점 확인
             break
         visited[curr] = True
-        for node in graph[curr]:
-            next, dist = node
+        for next, dist in graph[curr]:
             if distance[next] > distance[curr] + dist:
                 distance[next] = distance[curr] + dist
                 heapq.heappush(heap, (distance[next], next))
