@@ -28,7 +28,7 @@ dist = [INF] * (n + 1)
 
 for _ in range(m):
     a, b, c = map(int, input().split())
-    edges.appen((a, b, c))
+    edges.append((a, b, c))
 
 negative_cycle = bf(1)
 
