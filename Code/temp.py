@@ -43,20 +43,20 @@
 #     return sort(0, len(arr)-1)
 #
 #
+
 def merge_sort(arr):
     def sort(low, high):
-        if high - low >= 2:
+        if low < high:
             mid = low + (high - low) // 2
             sort(low, mid)
-            sort(mid, high)
-            print(mid)
+            sort(mid+1, high)
             merge(low, mid, high)
 
     def merge(low, mid, high):
-        temp = [0 for _ in range(high - low)]
-        l, h, k = low, mid, 0
+        temp = [0 for _ in range(high - low + 1)]
+        l, h, k = low, mid+1, 0
 
-        while l < mid and h < high:
+        while l <= mid and h <= high:
             if arr[l] < arr[h]:
                 temp[k] = arr[l]
                 l += 1
@@ -65,19 +65,20 @@ def merge_sort(arr):
                 h += 1
             k += 1
 
-        while l < mid:
+        while l <= mid:
             temp[k] = (arr[l])
             l += 1
             k += 1
-        while h < high:
+        while h <= high:
             temp[k] = (arr[h])
             h += 1
             k += 1
 
-        for i in range(low, high):
+        for i in range(low, high+1):
             arr[i] = temp[i - low]
 
-    return sort(0, len(arr))
+    return sort(0, len(arr) - 1)
+
 
 test = [3,4,1,5,6,7,8,2,4,5]
 

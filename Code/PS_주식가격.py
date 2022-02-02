@@ -1,32 +1,50 @@
+# def solution(prices):
+#     stack = []
+#     n = len(prices)
+#     answer = [0] * n
+#
+#     for i in range(n):
+#         j = i - 1
+#         t = 1
+#
+#         while j >= 0:
+#             if stack[j] <= 0:
+#                 t += 1
+#                 j -= 1
+#             else:
+#                 if stack[j] > prices[i]:
+#                     stack[j] = -t
+#                     t += 1
+#                     j -= 1
+#                 else:
+#                     break
+#         stack.append(prices[i])
+#
+#     temp = 0
+#     for i in range(n-1, -1, -1):
+#         if stack[i] > 0:
+#             answer[i] = temp
+#         else:
+#             answer[i] = -stack[i]
+#         temp += 1
+#
+#     return answer
+
+from collections import deque
 def solution(prices):
-    stack = []
-    n = len(prices)
-    answer = [0] * n
+    answer = []
+    prices = deque(prices)
+    while prices:
+        c = prices.popleft()
 
-    for i in range(n):
-        j = i - 1
-        t = 1
+        count = 0
+        for i in prices:
+            if c > i:
+                count += 1
+                break
+            count += 1
 
-        while j >= 0:
-            if stack[j] <= 0:
-                t += 1
-                j -= 1
-            else:
-                if stack[j] > prices[i]:
-                    stack[j] = -t
-                    t += 1
-                    j -= 1
-                else:
-                    break
-        stack.append(prices[i])
-
-    temp = 0
-    for i in range(n-1, -1, -1):
-        if stack[i] > 0:
-            answer[i] = temp
-        else:
-            answer[i] = -stack[i]
-        temp += 1
+        answer.append(count)
 
     return answer
 
