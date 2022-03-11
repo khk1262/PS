@@ -4,3 +4,7 @@ Code/.idea/
 *.xml
 
 .idea/PS.iml
+
+Code_CPP/.vscode/c_cpp_properties.json
+
+Code_CPP/.vscode/settings.json
