@@ -1,0 +1,22 @@
+class Solution {
+public:
+	int search(vector<int>& nums, int target) {
+		int log = log2(nums.size());
+		int i = 0;
+		if (nums[i] == target) return i;
+		for (; log >= 0; log--) {
+			int dist = 1 << log;
+			if (i + (dist) < nums.size()) {
+				if (nums[i + dist] < target) {
+					i += dist;
+				}
+			}
+		}
+		if (i + 1 == nums.size() || nums[i + 1] != target) {
+			return -1;
+		}
+		else {
+			return i + 1;
+		}
+	}
+};
